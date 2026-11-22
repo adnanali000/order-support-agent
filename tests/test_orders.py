@@ -1,11 +1,7 @@
 from fastapi.testclient import TestClient
 
-from app.main import app
 
-client = TestClient(app)
-
-
-def test_create_get_and_cancel_order() -> None:
+def test_create_get_and_cancel_order(client: TestClient) -> None:
     create = client.post(
         "/orders",
         json={"customer_name": "Adnan", "item": "Biryani", "quantity": 2},

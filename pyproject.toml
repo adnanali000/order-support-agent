@@ -9,6 +9,8 @@ dependencies = [
   "uvicorn[standard]>=0.32.0",
   "pydantic>=2.9.0",
   "pydantic-settings>=2.6.0",
+  "sqlalchemy[asyncio]>=2.0.36",
+  "asyncpg>=0.30.0",
 ]
 
 [project.optional-dependencies]
@@ -30,6 +32,7 @@ include = ["app*"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"
 
 [tool.ruff]
 line-length = 100

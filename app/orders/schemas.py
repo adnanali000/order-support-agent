@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 
 class OrderStatus(str, Enum):
     CREATED = "created"
-    PREAPARING = "preparing"
+    PREPARING = "preparing"
     OUT_FOR_DELIVERY = "out_for_delivery"
     DELIVERED = "delivered"
     CANCELLED = "cancelled"

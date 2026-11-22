@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     app_name: str = "order-support-agent"
     app_env: str = "local"
     log_level: str = "INFO"
+    database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5433/orders"
 
 @lru_cache()
 def get_settings() -> Settings:
