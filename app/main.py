@@ -1,12 +1,14 @@
 from fastapi import FastAPI
 
+from app.api.health import router as health_router
+from app.core.config import get_settings
+
+settings = get_settings()
+
 app = FastAPI(
-    title="Order Support Agent",
+    title=settings.app_name,
     version="0.1.0",
     description="Delivery order support backend. Grows through LLM, RAG, evals, tools, and ops.",
 )
 
-
-@app.get("/health")
-def health() -> dict[str, str]:
-    return {"status": "ok"}
+app.include_router(health_router)
