@@ -1,0 +1,25 @@
+# Local planning notes. Keep them on this machine.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+.env
+.env.*
+!.env.example
+
+# Model weights stay on disk.
+*.gguf
+*.safetensors
+*.bin
+models/
+
+# Local measurements and dashboard state.
+bench/results/
+*.prof
+grafana-data/
+prometheus-data/
