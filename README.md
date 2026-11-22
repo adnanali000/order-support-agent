@@ -97,17 +97,21 @@ The model does not get the database. The model does not get payment systems. It 
 
 ## Local setup
 
-Python 3.11+ recommended. Create a virtualenv, install from pyproject.toml when dependencies exist, copy `.env.example` to `.env`, and run the API from `app`.
+Python 3.11+ recommended. Create a virtualenv, install from `pyproject.toml`, copy `.env.example` to `.env`, and fill in DB credentials there. Never commit `.env`.
 
 ```bash
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 # Unix: source .venv/bin/activate
 pip install -e ".[dev]"
+copy .env.example .env   # Windows
+# cp .env.example .env   # Unix
+# edit .env: POSTGRES_* and DATABASE_URL
+docker compose up -d
 uvicorn app.main:app --reload
 ```
 
-Postgres arrives with docker compose when the order API needs a real database. Secrets stay in `.env`. Never commit keys or model weight files.
+`docker-compose.yml` reads passwords from `.env` only. Do not put real keys, tokens, or DB passwords in source, `.env.example`, or commit history.
 
 ## Resume angle
 
